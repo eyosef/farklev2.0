@@ -9,3 +9,12 @@ export function commentActions(formContent) {
       .then(post => {dispatch({ type: 'UPDATE_POST', post })});
   }
 }
+
+export function fetchComments() {
+  return (dispatch) => {
+    dispatch({ type: 'LOADING_COMMENTS' });
+    return fetch('http://localhost:3001/comments')
+      .then(response => response.json())
+      .then(comments => {dispatch({ type: 'FETCH_COMMENTS', comments: comments })});
+  }
+}

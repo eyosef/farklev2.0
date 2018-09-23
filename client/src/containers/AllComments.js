@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import { fetchPosts } from '../actions/postActions'; // TO DO
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import PostForm from './PostForm'; // TO DO
-import PostsList from '../components/PostsList'; // TO DO
+import { fetchComments } from '../actions/commentActions'; // TO DO
 
 class AllComments extends Component {
 
   componentDidMount() {
-    this.props.fetchPosts();
+    this.props.fetchComments();
   }
 
   render() {
@@ -17,10 +15,10 @@ class AllComments extends Component {
       <div className="AllComments">
         {
           <React.Fragment>
-            <PostForm />
-            <PostsList postsList={this.props.posts.all} />
+            {this.props.comments.all}
           </React.Fragment>
         }
+
       </div>
     )
   }
@@ -29,13 +27,13 @@ class AllComments extends Component {
 const mapStateToProps = (state) => {
   // debugger
   return {
-    posts: state.posts
+    comments: state.comments
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    fetchPosts: fetchPosts
+    fetchComments: fetchComments
   }, dispatch);
 };
 
