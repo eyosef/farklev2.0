@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Discuss } from '../components/Discuss'
 import { fetchComments } from '../actions/commentActions'; // TO DO
 
 class AllComments extends Component {
@@ -15,7 +16,9 @@ class AllComments extends Component {
       <div className="AllComments">
         {
           <React.Fragment>
-            {this.props.comments.all}
+            {
+                <Discuss comments={this.props.comments} />
+            }
           </React.Fragment>
         }
 

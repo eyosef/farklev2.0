@@ -1,22 +1,34 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import AllComments from '../containers/AllComments'; 
+import { fetchComments } from '../actions/commentActions';
+import Comment from './Comment';
 
-// const API = 'http://localhost:3001/comments';
+export class Discuss extends Component {
+    constructor(){
+        super();
 
-// componentDidMount() {
-//     fetch(API)
-//       .then(response => response.json())
-//       .then(comment => this.setState({ comment: comment }));
-//   }
+        this.state = { comments: undefined }
+    }
 
-const Discuss = () => (
+    fetchComments = () => this.props.fetchComments(this.state.comments); //change into component lifecycle method
 
-    <div>
-        <h3>Discussion Thread</h3>
-        <AllComments />
-        <NavLink to="/submitcomment" activeClassName="is-active">Submit a Comment</NavLink><br></br>
-    </div>
-);
+    render() {
+        console.log(this.state)
+        return (
+            <div>
+                <h3>Discussion Thread</h3>
+                <div>
+                     { this.state.comments.map(
+                         comment => <Comment comment={ comment } />
+                     ) }
+                </div>
+                <NavLink to="/submitcomment" activeClassName="is-active">Submit a Comment</NavLink><br></br>
+            </div>
+        )
+    }
+}
 
-export default Discuss;
+
+
+export default connect(state => {return { comments: state.comments } }, { fetchComments })(Discuss);

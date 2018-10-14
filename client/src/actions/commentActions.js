@@ -1,5 +1,6 @@
+// import * as constants from './actionTypes';
+
 export function commentActions(formContent) {
- 
   return (dispatch) => {
     return fetch(`http://localhost:3001/comments`, {
       method: 'POST',
@@ -10,11 +11,20 @@ export function commentActions(formContent) {
   }
 }
 
+// export function fetchComments() {
+//   return (dispatch) => {
+//     dispatch({ type: 'LOADING_COMMENTS' });
+//     return fetch('http://localhost:3001/comments')
+//       type: constants.LOADING_COMMENTS,
+//       dispatch
+//   }
+// }
+
 export function fetchComments() {
   return (dispatch) => {
     dispatch({ type: 'LOADING_COMMENTS' });
     return fetch('http://localhost:3001/comments')
-      .then(response => response.json())
+      .then(response => response.json() )
       .then(comments => {dispatch({ type: 'FETCH_COMMENTS', comments: comments })});
   }
 }
