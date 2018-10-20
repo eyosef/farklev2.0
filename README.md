@@ -1,24 +1,8 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Here's how to get this up and running;
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* cd in farkle/farkle/client
+* CTRL + T to topen a 2nd tab
+* In another tab, run bundle install, rake db:migrate and rails s -p 3001
+* In one tab, run npm run build & npm run start
