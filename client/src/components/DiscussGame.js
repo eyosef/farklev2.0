@@ -2,20 +2,23 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { fetchComments } from '../actions/commentActions';
-import Comment from './Comment';
+import GameComment from './GameComment';
 
-export class Discuss extends Component {
+export class DiscussGame extends Component {
 
     componentDidMount() {
         this.props.fetchComments();
     }
 
     render() {
-        const comments = this.props.comment.map((comment, i) =>  <Comment key={i} comment={comment}/>)
+        const comments = this.props.comment.map((comment, i) => 
+                <GameComment key={i} comment={comment}/>
+        );
+
         return (
             <div>
-                <h3>Discussion Thread</h3>
-                    <NavLink to="/submitcomment" activeClassName="is-active">Submit a Comment</NavLink>
+                <h3>Let's Talk Code</h3>
+                    <NavLink to="/submitgamecomment" activeClassName="is-active">Submit a Comment</NavLink>
                     <br></br>
                     <br></br>
                 <div>
@@ -32,4 +35,4 @@ const mapStateToProps = state => {
     )
 }
 
-export default connect( mapStateToProps, { fetchComments })(Discuss);
+export default connect( mapStateToProps, { fetchComments })(DiscussGame);

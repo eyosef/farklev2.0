@@ -3,13 +3,13 @@ import { commentActions } from '../actions/commentActions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-class SubmitComment extends Component {
+class SubmitGameComment extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
             username: '',
-            email: '',
+            email: 'gamer',
             comment: ''
         };
     }
@@ -26,13 +26,14 @@ class SubmitComment extends Component {
         console.log("onSubmitHandler hit!")
         let formContent = Object.assign({}, this.state)
         this.props.commentActions(formContent);
-        this.props.history.push("/comments")
+        this.props.history.push("/discuss-game")
       }
 
     render() {
         return (
             <div>
-                <h3> Submit a Comment</h3>
+                <h3> How Could the Functionality/Code Imrpove?</h3>
+                <h4>Submit a Comment</h4>
                 <form onSubmit={this.onSubmitHandler.bind(this)}>
                     <label>Username: </label>
                     <input 
@@ -44,22 +45,10 @@ class SubmitComment extends Component {
                         value={this.state.username}
                         onChange={(event) => this.onUserInput(event)}
                     />
-                    <br /><br />
-
-                    <label>Email: </label>
-                    <input
-                        ref="email"
-                        type="text"
-                        id="email"
-                        name="email"
-                        placeholder="email"
-                        value={this.state.email}
-                        onChange={(event) => this.onUserInput(event)}
-                    />
 
                     <br /><br />
                     <label>Comment: </label>
-                    <input
+                    <textarea
                         ref="comment"
                         type="text"
                         id="comment"
@@ -84,4 +73,4 @@ const mapDispatchToProps = (dispatch) => {
     }, dispatch)
   }
   
-  export default connect(null, mapDispatchToProps)(SubmitComment);
+  export default connect(null, mapDispatchToProps)(SubmitGameComment);

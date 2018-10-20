@@ -11,6 +11,7 @@ const Header = () => (
         <NavLink to="/farkleinfo" activeClassName="is-active">What's Farkle?</NavLink><br></br>
         <NavLink to="/playfarkle" activeClassName="is-active">Farkle: a Simulation</NavLink><br></br>
         <NavLink to="/comments" activeClassName="is-active">Discuss</NavLink><br></br>
+        <NavLink to="/discuss-game" activeClassName="is-active">Thoughts on the Code??</NavLink><br></br>
     </header>
 );
 

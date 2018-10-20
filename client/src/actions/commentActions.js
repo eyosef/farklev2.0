@@ -7,18 +7,9 @@ export function commentActions(formContent) {
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({comment: formContent})})
       .then(response => response.json())
-      .then(post => {dispatch({ type: 'UPDATE_POST', post })});
+      .then(comment => {dispatch({ type: 'UPDATE_COMMENT', comment })});
   }
 }
-
-// export function fetchComments() {
-//   return (dispatch) => {
-//     dispatch({ type: 'LOADING_COMMENTS' });
-//     return fetch('http://localhost:3001/comments')
-//       type: constants.LOADING_COMMENTS,
-//       dispatch
-//   }
-// }
 
 export function fetchComments() {
   return (dispatch) => {

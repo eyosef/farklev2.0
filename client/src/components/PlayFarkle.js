@@ -154,6 +154,7 @@ class PlayFarkle extends React.Component {
           >
             Roll
           </button>
+
           <br></br>
           <br></br>
         </div>
