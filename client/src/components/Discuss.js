@@ -8,6 +8,7 @@ export class Discuss extends Component {
 
     componentDidMount() {
         this.props.fetchComments();
+        // add logic to only run fetchComments on page reload
     }
 
     render() {

@@ -1,14 +1,18 @@
 // import * as constants from './actionTypes';
 
 export function commentActions(formContent) {
+  console.log('C')
   return (dispatch) => {
     return fetch(`http://localhost:3001/comments`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({comment: formContent})})
       .then(response => response.json())
-      .then(comment => {dispatch({ type: 'UPDATE_COMMENT', comment })});
+      .then(comment => {
+        console.log('D')
+        dispatch({ type: 'UPDATE_COMMENT', comment })});
   }
+  console.log('E')
 }
 
 export function fetchComments() {

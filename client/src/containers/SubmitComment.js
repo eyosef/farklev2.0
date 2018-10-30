@@ -23,9 +23,11 @@ class SubmitComment extends Component {
     
     onSubmitHandler = event => {
         event.preventDefault()
-        console.log("onSubmitHandler hit!")
+       // console.log("onSubmitHandler hit!")
+       console.log('A')
         let formContent = Object.assign({}, this.state)
         this.props.commentActions(formContent);
+        console.log('B')
         this.props.history.push("/comments")
       }
 
