@@ -11,16 +11,17 @@ export class Discuss extends Component {
         this.state = { comments: this.props.comment }
     }
 
-    // componentWillReceiveProps(nextProps) {
-    //     if(nextProps.value !== this.props.value) {
+    // componentWillReceiveProps() {
+    //     if ( this.state.comments.length === 0 ) {
     //         this.props.fetchComments();
     //     }
     // }
 
-    componentDidMount() {
-        this.props.fetchComments();
-        // add logic to only run fetchComments on page reload
-    }
+    // componentDidMount() {
+    //     debugger;
+    //     this.props.fetchComments();
+    //     // add logic to only run fetchComments on page reload
+    // }
 
 
     render() {
