@@ -34,6 +34,8 @@ gem 'foreman', '~> 0.82.0'
 
 gem 'pry', '~> 0.10.3'
 
+gem 'loofah', '2.2.3'
+
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 

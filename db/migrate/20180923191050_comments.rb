@@ -4,6 +4,7 @@ class Comments < ActiveRecord::Migration[5.2]
       t.string :username
       t.string :email
       t.string :comment
+      t.integer :likes
 
       t.timestamps
     end

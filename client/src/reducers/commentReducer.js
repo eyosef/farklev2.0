@@ -9,6 +9,8 @@ export default function comments (state = [] , action) {
       case 'UPDATE_COMMENT':
         // return Object.assign({}, state, { comments: action.comment } ) 
         return state.concat(action.comment)
+      case 'UPDATE_LIKES':
+        return state.concat(action.comment)
       case 'REMOVE_COMMENT':
         // remove comment by filtering post.comments collection
         return state.filter(comment => comment.id !== action.commentId)

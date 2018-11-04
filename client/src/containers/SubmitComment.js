@@ -10,7 +10,8 @@ class SubmitComment extends Component {
         this.state = {
             username: '',
             email: '',
-            comment: ''
+            comment: '',
+            likes: 0
         };
     }
 
